@@ -14,7 +14,11 @@ def add(request):
     
     if request.method == 'POST':
         task = request.POST['task']
-        tasks.append(task)
-        return HttpResponseRedirect(reverse('tasks:index'))
+        if task == '':
+            error_message = 'Add task field'
+            return render(request, 'add.html' , {'error_message': error_message})
+        else:
+            tasks.append(task)
+            return HttpResponseRedirect(reverse('tasks:index'))
     
     return render(request, 'add.html' )

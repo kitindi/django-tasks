@@ -1,10 +1,11 @@
 {% extends 'main.html' %} {% block content %}
 <div class="container">
   <div class="max-w-[720px] mx-auto py-10">
-    <ul>
+    <ul class="grid grid-cols-3 gap-2">
       {% for task in tasks %}
 
-      <div class="p-4 bg-gray-100 block w-full mb-4">
+      <div class="p-6 bg-sky-300 block w-full mb-4 rounded-md">
+        <span><i class="fa-solid fa-thumbtack text-green-500"></i></span>
         <p class="text-md text-slate-700">{{task}}</p>
       </div>
 
