@@ -1,6 +1,20 @@
 {% extends 'main.html' %} {% block content %}
 <div class="container">
-  <div class="max-w-[720px] mx-auto">form here</div>
+  <div class="max-w-[600px] mx-auto p-10">
+    <form action="">
+      <div class="w-full mb-5">
+        <input
+          type="text"
+          class="block w-full border-2 ring-gray-200 focus:ring-gray-300 outline-gray-200 p-3 rounded-sm" />
+      </div>
+      <div>
+        <button
+          class="block w-full bg-green-500 p-3 text-white hover:bg-green-400">
+          Create Task
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
 
 {% endblock %}
