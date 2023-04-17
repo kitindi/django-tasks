@@ -1,6 +1,16 @@
 {% extends 'main.html' %} {% block content %}
 <div class="container">
-  <div class="max-w-[720px] mx-auto">list here</div>
+  <div class="max-w-[720px] mx-auto py-10">
+    <ul>
+      {% for task in tasks %}
+
+      <div class="p-4 bg-gray-100 block w-full mb-4">
+        <p class="text-md text-slate-700">{{task}}</p>
+      </div>
+
+      {% endfor %}
+    </ul>
+  </div>
 </div>
 
 {% endblock %}

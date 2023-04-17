@@ -1,14 +1,18 @@
 {% extends 'main.html' %} {% block content %}
 <div class="container">
   <div class="max-w-[600px] mx-auto p-10">
-    <form action="">
+    <form method="POST" action="{% url 'tasks:add' %}">
+      {% csrf_token %}
       <div class="w-full mb-5">
         <input
           type="text"
-          class="block w-full border-2 ring-gray-200 focus:ring-gray-300 outline-gray-200 p-3 rounded-sm" />
+          class="block w-full border-2 ring-gray-200 focus:ring-gray-300 outline-gray-200 p-3 rounded-sm"
+          placeholder="what do you want to do today?"
+          name="task" />
       </div>
       <div>
         <button
+          type="submit"
           class="block w-full bg-green-500 p-3 text-white hover:bg-green-400">
           Create Task
         </button>

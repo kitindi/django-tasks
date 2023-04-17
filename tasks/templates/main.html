@@ -12,7 +12,7 @@
   </head>
   <body>
     <div class="max-w-[960px] mx-auto py-4 flex justify-between">
-      <a href="{% url 'index' %}">
+      <a href="{% url 'tasks:index' %}">
         <h1 class="text-3xl text-blue-700 font-semibold">
           <span> <i class="fa-brands fa-get-pocket text-green-500"></i></span>
           Tasks Evelet
@@ -21,9 +21,9 @@
       </a>
 
       <a
-        href="{% url 'add' %}"
+        href="{% url 'tasks:add' %}"
         class="{% if request.path != '/' %} hidden {% endif %}rounded px-8 py-3 bg-green-500 text-white text-sm h-fit font-semibold tracking-wide hover:bg-green-400">
-        Create Task
+        Create Newt Task
       </a>
     </div>
     <header
