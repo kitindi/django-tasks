@@ -1,0 +1,21 @@
+{% extends 'main.html' %} {% block content %}
+<div class="container">
+  <div class="max-w-[600px] mx-auto p-10">
+    <form method="POST" action="">
+      {% csrf_token %}
+      <div class="w-full mb-5">
+       {{ form.title  }}
+
+      </div>
+      <div>
+        <button
+          type="submit"
+          class="block w-full bg-green-500 p-3 text-white hover:bg-green-400">
+          Update task
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

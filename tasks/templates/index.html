@@ -1,13 +1,17 @@
 {% extends 'main.html' %} {% block content %}
 <div class="container">
   <div class="max-w-[720px] mx-auto py-10">
-    <ul class="grid grid-cols-3 gap-2">
+    <ul class=" flex flex-row gap-2">
       {% for task in tasks %}
 
       <div class="py-6 px-4 bg-emerald-100 block w-full mb-4 rounded-md">
         <span><i class="fa-regular fa-calendar-minus mb-2"></i></span>
         <p class="text-md text-slate-700">{{task.title}}</p>
+        <div class="mt-2 flex justify-end">
+          <a href="edit/{{task.id}}" class="text-sm"><i class="fa-regular fa-pen-to-square"></i>Edit</span>
+        </div>
       </div>
+      
 
       {% empty %}
       <div class="flex gap-5 p-4">
