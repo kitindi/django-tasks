@@ -1,15 +1,11 @@
 {% extends 'main.html' %} {% block content %}
 <div class="container">
   <div class="max-w-[600px] mx-auto p-10">
-    <form method="POST" action="{% url 'tasks:add' %}">
+    <form method="POST" action="">
       {% csrf_token %}
       <div class="w-full mb-5">
-        <input
-          type="text"
-          class="block w-full border-2 ring-gray-200 focus:ring-gray-300 outline-gray-200 p-3 rounded-sm"
-          placeholder="what do you want to do today?"
-          name="task" />
-        <p class="text-sm text-red-400 my-3">{{error_message}}</p>
+       {{ form.title  }}
+
       </div>
       <div>
         <button

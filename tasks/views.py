@@ -1,27 +1,26 @@
 
-from django.shortcuts import render
-from django.urls import reverse
-from django.http import HttpResponseRedirect
+from django.shortcuts import render, redirect
+from .forms import TaskCreationForm
+from .models import Task
 
 # Create your views here.
 
 
 
 def index(request):
-    if "tasks" not in request.session:
-        request.session["tasks"] =[]
+    tasks = Task.objects.all()
+    context = {'tasks':tasks}
         
-    return render(request, 'index.html',{'tasks': request.session['tasks']} )
+    return render(request, 'index.html', context)
 
 def add(request):
-    
+    form = TaskCreationForm()
+    context ={'form':form}
+
     if request.method == 'POST':
-        task = request.POST['task']
-        if task == '':
-            error_message = 'Add task field'
-            return render(request, 'add.html' , {'error_message': error_message})
-        else:
-            request.session["tasks"]+=[task]
-            return HttpResponseRedirect(reverse('tasks:index'))
+        form = TaskCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
     
-    return render(request, 'add.html' )
+    return render(request, 'add.html', context)
