@@ -41,5 +41,6 @@ def signin(request):
     
 
 def signout(request):
-    context ={}
-    return render(request, 'users/signout.html', context)
+    logout(request)
+
+    return redirect('/')
