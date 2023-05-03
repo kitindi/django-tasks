@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/9ca08a6a82.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+  </head>
+  <body>
+    <div class="max-w-[960px] mx-auto py-2 flex justify-between h-[10vh]">
+      <span>
+        <h1 class="text-3xl text-blue-700 font-semibold">
+          <span> <i class="fa-brands fa-get-pocket text-green-500"></i></span>
+          dailyGoals
+        </h1>
+        <p class="text-sm text-slate-500 italic">A productivity app</p>
+      </span>
+    </div>
+    <section
+      class="w-full bg-slate-100 h-[90vh] flex justify-center items-center"
+    >
+      <div class="w-full max-w-[900px] grid grid-cols-12 gap-4">
+        <div class="col-span-7 pr-3">
+          <div>
+            <p class="text-[2.5rem] text-green-500">
+              Organise your daily goals effectively & be productive
+            </p>
+          </div>
+        </div>
+        <div class="col-span-5 p-3">
+          <a
+            href="{% url 'signup' %}"
+            class="block bg-blue-700 text-white px-8 py-3 h-fit font-semibold text-center col-span-6 mb-4 text-[1.15rem]"
+            >Sign Up</a
+          >
+          <a
+            href="{% url 'signin' %}"
+            class="block border-2 border-blue-400 text-slate-600 px-8 py-3 h-fit font-semibold text-center col-span-6 text-[1.15rem]"
+            >Sign In</a
+          >
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

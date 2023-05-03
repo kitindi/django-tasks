@@ -6,12 +6,14 @@ from .models import Task
 # Create your views here.
 
 
+def home(request):
+    return render(request, 'home.html')
 
-def index(request):
+def profile(request):
     tasks = Task.objects.all()
     context = {'tasks':tasks}
         
-    return render(request, 'index.html', context)
+    return render(request, 'profile.html', context)
 
 def add(request):
     form = TaskCreationForm()
@@ -21,14 +23,14 @@ def add(request):
         form = TaskCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return redirect('/profile/')
     
     return render(request, 'add.html', context)
 
 def delete(request, id):
     task = Task.objects.get(id=id)
     task.delete()
-    return redirect('/')
+    return redirect('/profile/')
 
 def edit(request,id):
     task = Task.objects.get(id=id)
@@ -38,6 +40,6 @@ def edit(request,id):
         form = TaskCreationForm(request.POST, instance=task)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return redirect('/profile/')
         
     return render(request, 'edit.html', {'form': form})
