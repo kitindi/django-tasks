@@ -46,7 +46,12 @@
                   <div class="mb-3 text-slate-600">
                     <p>{{field.label}}</p>
                     {{ field }}</div>
-
+                    {% if field.errors %}
+                    {% for error in field.errors  %}
+                      <p class="text-red-500 text-[.65rem] mb-3">{{error}}</p>
+                    {% endfor %}
+                    {% endif %}                 
+                      
                   {% endfor %}
                 </div>
                 
@@ -57,7 +62,7 @@
                   <a
                     href="{% url 'signin' %}"
                     class="text-slate-600 text-[1.05rem] text-center col-span-6 flex pt-6 underline"
-                    >I already have an account</a
+                    >Already have an account? Sign In</a
                   >
                 </div>
               </div>
